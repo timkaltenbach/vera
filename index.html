@@ -60,9 +60,10 @@
                 </div>
                 <div class="preview-content">
                     <div class="preview-player">
-                        <video autoplay muted loop playsinline>
+                        <video autoplay muted loop playsinline id="demoVideo" onclick="toggleMute(this)">
                             <source src="demo.mp4" type="video/mp4">
                         </video>
+                        <div class="sound-hint" id="soundHint">🔇 Click for sound</div>
                     </div>
                 </div>
             </div>
@@ -321,5 +322,11 @@
             <p>&copy; 2024 Vera AI. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        function toggleMute(video) {
+            video.muted = !video.muted;
+            document.getElementById('soundHint').textContent = video.muted ? '🔇 Click for sound' : '🔊 Sound on';
+        }
+    </script>
 </body>
 </html>
